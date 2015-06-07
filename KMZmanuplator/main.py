@@ -23,7 +23,7 @@ def ColorD2H(dec, alpha=255):
         blue = hex(blue).split('x')[1].split('L')[0]
         alpha = hex(alpha).split('x')[1].split('L')[0]
         
-        return red+green+blue+alpha
+        return alpha+blue+green+red
     
     
 
@@ -31,9 +31,10 @@ FPL_weakRF_all = r"C:\Users\jxue\Documents\Projects_LocalDrive\FPL Units\Map\RF_
 FPL_weakRF_8 = r"C:\Users\jxue\Documents\Projects_LocalDrive\FPL Units\Map\FPL_weakRF_8.txt"
 KMZ_file = r"C:\Users\jxue\Documents\Projects_LocalDrive\FPL Units\Map\lorenzo-fpl-mia-2015-06-01--23-35-29.meters-bystate.kmz"
 
-hightLight = ColorD2H(255255128) # yellow
+hightLight = ColorD2H(255128128)
+iconScale = 1.5
 
-newKMZ = KMZ(target=FPL_weakRF_all, color=hightLight, kmzfile=KMZ_file, visible=0)
+newKMZ = KMZ(target=FPL_weakRF_all, color=hightLight, kmzfile=KMZ_file, scale=iconScale, visible=0)
 
 #newKMZ.renExt(KMZ_file, 'zip')
 

@@ -118,7 +118,7 @@ class KMZ():
         # make a copy of mac list
         macList = self.macList[:]
         # count number of mac found in kml
-        n = 1
+        n = 1        
         for kml in self.kmlList:            
             if "style" not in kml: # we don't care about style file
                 kmlPath = '\\'.join([self.mainDir, kml])
@@ -163,16 +163,16 @@ class KMZ():
     def KmlPlacemarkLabel(self, KML, label, info=1):
         KML.Style.append(label)        
     
-    def KmlSummary(self, numMacs, newMacList=[]):
+    def KmlSummary(self, totalMacs, newMacList=[]):
         # number of macs that has went through the style change
         # len(newMacList) may not be zero if target mac are not found in kml file
         numMacs = len(set(self.macList) - set(newMacList))
         
         print "--------      Summary      --------"
-        print "Total MACs found %d" % numMacs
-        print "Changed icon color for %d macs" % numMacs
+        print "Total MACs found in database: %d" % totalMacs
+        print "Updated style for %d macs" % numMacs
         if len(newMacList) > 0:
-            print "Number of Macs not found: %d" % len(newMacList)            
+            print "%d macs from target list not found in database" % len(newMacList)            
             for i in newMacList:
                 print i
         print "--------   End of Summary  --------"
